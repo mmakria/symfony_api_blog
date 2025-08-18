@@ -10,11 +10,16 @@ use App\Entity\Article;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\MapQueryString;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
+use Symfony\Component\HttpKernel\Attribute\MapUploadedFile;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Validator\Constraints\Image;
 
 #[Route('/api/admin/articles', name: 'api_admin_users')]
 class ArticleController extends AbstractController
@@ -24,7 +29,8 @@ class ArticleController extends AbstractController
         private readonly EntityManagerInterface $entityManager,
         private readonly ArticleMapper          $articleMapper,
     )
-    {}
+    {
+    }
 
     #[Route('', name: 'read_articles', methods: ['GET'])]
     public function listArticles(
@@ -78,7 +84,7 @@ class ArticleController extends AbstractController
 
     #[Route('/{id}', name: 'update_article', methods: ['PATCH'])]
     public function updateArticle(
-        Article $article,
+        Article          $article,
         #[MapRequestPayload]
         UpdateArticleDto $dto
     ): JsonResponse
@@ -89,10 +95,40 @@ class ArticleController extends AbstractController
         $this->entityManager->flush();
         return $this->json(
             [
-                'message' => 'Article ' .  $article->getId() . ' mis à jour'
+                'message' => 'Article ' . $article->getId() . ' mis à jour'
             ],
             Response::HTTP_OK,
             context: ['groups' => ['articles:admin:write']]
+        );
+    }
+
+    #[Route('/{id}/upload', name: 'upload', methods: ['POST'])]
+    public function upload(
+        #[MapUploadedFile(
+            new Image(
+                maxSize: '8M',
+                mimeTypes: ['image/png',
+                    'image/jpeg',
+                    'image/jpg',
+                    'image/gif',
+                    'image/webp',
+                    'image/svg+xml',
+                    'image/avif',
+                ],
+                detectCorrupted: true,
+                maxSizeMessage: "L'image est trop lourde ! Le maximum est de {{ limit }} {{suffix}}",
+                mimeTypesMessage: 'Le fichier n\'est pas une image'
+            )
+        )]
+        UploadedFile $image,
+        Article      $article): JsonResponse
+    {
+        $article->setImageFile($image);
+        $this->entityManager->persist($article);
+        $this->entityManager->flush();
+        return $this->json(
+            null,
+            Response::HTTP_NO_CONTENT,
         );
     }
 }
