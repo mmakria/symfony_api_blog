@@ -29,7 +29,7 @@ class Article
     #[Groups(groups: ['articles:admin:read', 'articles:admin:write'])]
     private ?string $title = null;
 
-    #[Gedmo\Slug(fields: ['title'] )]
+    #[Gedmo\Slug(fields: ['title'])]
     #[ORM\Column(length: 255)]
     #[Groups(groups: ['articles:admin:read', 'articles:admin:write'])]
     private ?string $slug = null;
@@ -50,9 +50,6 @@ class Article
     #[ORM\JoinColumn(nullable: false)]
     #[Groups(groups: ['articles:admin:read'])]
     private ?User $user = null;
-
-
-
 
     #[Vich\UploadableField(mapping: 'articles_images', fileNameProperty: 'imageName')]
     private ?File $imageFile = null;

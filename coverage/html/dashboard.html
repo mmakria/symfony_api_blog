@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /Users/mak/Desktop/DWWM/Pierre-Bertrand DWWM/api_blog/src</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css?v=12.3.2" rel="stylesheet" type="text/css">
+  <link href="_css/billboard.min.css?v=12.3.2" rel="stylesheet" type="text/css">
+  <link href="_css/style.css?v=12.3.2" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">/Users/mak/Desktop/DWWM/Pierre-Bertrand DWWM/api_blog/src</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classesCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3 style="margin-top: 2rem;">Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/Admin/ArticleController.php.html#24">App\Controller\Admin\ArticleController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#16">App\Controller\Admin\UserController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/UserController.php.html#14">App\Controller\UserController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/Article/CreateArticleDto.php.html#8">App\Dto\Article\CreateArticleDto</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/Article/UpdateArticleDto.php.html#8">App\Dto\Article\UpdateArticleDto</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/Filter/ArticleFilterDto.php.html#7">App\Dto\Filter\ArticleFilterDto</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/User/RegisterUserDto.php.html#12">App\Dto\User\RegisterUserDto</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/User/UpdateUserAdminDto.php.html#8">App\Dto\User\UpdateUserAdminDto</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Mapper/ArticleMapper.php.html#11">App\Mapper\ArticleMapper</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Mapper/UserMapper.php.html#9">App\Mapper\UserMapper</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/ArticleRepository.php.html#13">App\Repository\ArticleRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#15">App\Repository\UserRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/AppFixtures.php.html#14">App\DataFixtures\AppFixtures</a></td><td class="text-right">4%</td></tr>
+       <tr><td><a href="Entity/User.php.html#14">App\Entity\User</a></td><td class="text-right">16%</td></tr>
+       <tr><td><a href="Entity/Article.php.html#14">App\Entity\Article</a></td><td class="text-right">52%</td></tr>
+       <tr><td><a href="Entity/Traits/DateTimeTrait.php.html#8">App\Entity\Traits\DateTimeTrait</a></td><td class="text-right">81%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3 style="margin-top: 2rem;">Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+         <th class="text-right">Complexity</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Entity/User.php.html#14">App\Entity\User</a></td><td class="text-right">16.1%</td><td class="text-right">21</td><td class="text-right">281</td></tr>
+       <tr><td><a href="Mapper/ArticleMapper.php.html#11">App\Mapper\ArticleMapper</a></td><td class="text-right">0.0%</td><td class="text-right">7</td><td class="text-right">56</td></tr>
+       <tr><td><a href="Entity/Article.php.html#14">App\Entity\Article</a></td><td class="text-right">52.0%</td><td class="text-right">18</td><td class="text-right">53</td></tr>
+       <tr><td><a href="Mapper/UserMapper.php.html#9">App\Mapper\UserMapper</a></td><td class="text-right">0.0%</td><td class="text-right">6</td><td class="text-right">42</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#15">App\Repository\UserRepository</a></td><td class="text-right">0.0%</td><td class="text-right">3</td><td class="text-right">12</td></tr>
+       <tr><td><a href="DataFixtures/AppFixtures.php.html#14">App\DataFixtures\AppFixtures</a></td><td class="text-right">4.2%</td><td class="text-right">3</td><td class="text-right">10</td></tr>
+       <tr><td><a href="Entity/Traits/DateTimeTrait.php.html#8">App\Entity\Traits\DateTimeTrait</a></td><td class="text-right">81.8%</td><td class="text-right">7</td><td class="text-right">7</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2 style="margin-top: 3rem;">Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodsCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3 style="margin-top: 2rem;">Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/Admin/ArticleController.php.html#27"><abbr title="App\Controller\Admin\ArticleController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/ArticleController.php.html#35"><abbr title="App\Controller\Admin\ArticleController::listArticles">listArticles</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/ArticleController.php.html#47"><abbr title="App\Controller\Admin\ArticleController::readArticle">readArticle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/ArticleController.php.html#56"><abbr title="App\Controller\Admin\ArticleController::deleteOneArticle">deleteOneArticle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/ArticleController.php.html#67"><abbr title="App\Controller\Admin\ArticleController::createArticle">createArticle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/ArticleController.php.html#85"><abbr title="App\Controller\Admin\ArticleController::updateArticle">updateArticle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/ArticleController.php.html#105"><abbr title="App\Controller\Admin\ArticleController::upload">upload</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#19"><abbr title="App\Controller\Admin\UserController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#25"><abbr title="App\Controller\Admin\UserController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#33"><abbr title="App\Controller\Admin\UserController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#48"><abbr title="App\Controller\Admin\UserController::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#63"><abbr title="App\Controller\Admin\UserController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/UserController.php.html#17"><abbr title="App\Controller\UserController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/UserController.php.html#21"><abbr title="App\Controller\UserController::register">register</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/AppFixtures.php.html#21"><abbr title="App\DataFixtures\AppFixtures::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/Article/CreateArticleDto.php.html#10"><abbr title="App\Dto\Article\CreateArticleDto::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/Article/CreateArticleDto.php.html#45"><abbr title="App\Dto\Article\CreateArticleDto::getTitle">getTitle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/Article/CreateArticleDto.php.html#50"><abbr title="App\Dto\Article\CreateArticleDto::getShortContent">getShortContent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/Article/CreateArticleDto.php.html#55"><abbr title="App\Dto\Article\CreateArticleDto::getContent">getContent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/Article/CreateArticleDto.php.html#60"><abbr title="App\Dto\Article\CreateArticleDto::getEnabled">getEnabled</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/Article/CreateArticleDto.php.html#65"><abbr title="App\Dto\Article\CreateArticleDto::getUser">getUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/Article/UpdateArticleDto.php.html#11"><abbr title="App\Dto\Article\UpdateArticleDto::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/Article/UpdateArticleDto.php.html#38"><abbr title="App\Dto\Article\UpdateArticleDto::getTitle">getTitle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/Article/UpdateArticleDto.php.html#43"><abbr title="App\Dto\Article\UpdateArticleDto::getShortContent">getShortContent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/Article/UpdateArticleDto.php.html#48"><abbr title="App\Dto\Article\UpdateArticleDto::getContent">getContent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/Article/UpdateArticleDto.php.html#53"><abbr title="App\Dto\Article\UpdateArticleDto::getEnabled">getEnabled</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/Article/UpdateArticleDto.php.html#58"><abbr title="App\Dto\Article\UpdateArticleDto::getUser">getUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/Filter/ArticleFilterDto.php.html#10"><abbr title="App\Dto\Filter\ArticleFilterDto::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/Filter/ArticleFilterDto.php.html#20"><abbr title="App\Dto\Filter\ArticleFilterDto::getPage">getPage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/Filter/ArticleFilterDto.php.html#25"><abbr title="App\Dto\Filter\ArticleFilterDto::getLimit">getLimit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/User/RegisterUserDto.php.html#19"><abbr title="App\Dto\User\RegisterUserDto::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/User/RegisterUserDto.php.html#61"><abbr title="App\Dto\User\RegisterUserDto::getUsername">getUsername</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/User/RegisterUserDto.php.html#66"><abbr title="App\Dto\User\RegisterUserDto::getFirstName">getFirstName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/User/RegisterUserDto.php.html#71"><abbr title="App\Dto\User\RegisterUserDto::getLastName">getLastName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/User/RegisterUserDto.php.html#76"><abbr title="App\Dto\User\RegisterUserDto::getPlainPassword">getPlainPassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/User/RegisterUserDto.php.html#81"><abbr title="App\Dto\User\RegisterUserDto::getConfirmPassword">getConfirmPassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/User/UpdateUserAdminDto.php.html#10"><abbr title="App\Dto\User\UpdateUserAdminDto::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/User/UpdateUserAdminDto.php.html#59"><abbr title="App\Dto\User\UpdateUserAdminDto::getUsername">getUsername</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/User/UpdateUserAdminDto.php.html#64"><abbr title="App\Dto\User\UpdateUserAdminDto::getFirstName">getFirstName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/User/UpdateUserAdminDto.php.html#69"><abbr title="App\Dto\User\UpdateUserAdminDto::getLastName">getLastName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/User/UpdateUserAdminDto.php.html#74"><abbr title="App\Dto\User\UpdateUserAdminDto::getPlainPassword">getPlainPassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/User/UpdateUserAdminDto.php.html#79"><abbr title="App\Dto\User\UpdateUserAdminDto::getConfirmPassword">getConfirmPassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dto/User/UpdateUserAdminDto.php.html#84"><abbr title="App\Dto\User\UpdateUserAdminDto::getRoles">getRoles</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Article.php.html#60"><abbr title="App\Entity\Article::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Article.php.html#65"><abbr title="App\Entity\Article::getTitle">getTitle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Article.php.html#82"><abbr title="App\Entity\Article::setSlug">setSlug</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Article.php.html#89"><abbr title="App\Entity\Article::getContent">getContent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Article.php.html#101"><abbr title="App\Entity\Article::getShortContent">getShortContent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Article.php.html#113"><abbr title="App\Entity\Article::isEnabled">isEnabled</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Article.php.html#146"><abbr title="App\Entity\Article::setImageFile">setImageFile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Article.php.html#162"><abbr title="App\Entity\Article::setImageName">setImageName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Article.php.html#167"><abbr title="App\Entity\Article::getImageName">getImageName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#65"><abbr title="App\Entity\User::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#70"><abbr title="App\Entity\User::getUsername">getUsername</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#87"><abbr title="App\Entity\User::getUserIdentifier">getUserIdentifier</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#95"><abbr title="App\Entity\User::getRoles">getRoles</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#107"><abbr title="App\Entity\User::setRoles">setRoles</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#117"><abbr title="App\Entity\User::getPassword">getPassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#132"><abbr title="App\Entity\User::eraseCredentials">eraseCredentials</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#138"><abbr title="App\Entity\User::getFirstName">getFirstName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#143"><abbr title="App\Entity\User::setFirstName">setFirstName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#150"><abbr title="App\Entity\User::getLastName">getLastName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#155"><abbr title="App\Entity\User::setLastName">setLastName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#162"><abbr title="App\Entity\User::getFullName">getFullName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#171"><abbr title="App\Entity\User::getAricles">getAricles</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#176"><abbr title="App\Entity\User::addAricle">addAricle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#186"><abbr title="App\Entity\User::removeAricle">removeAricle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Mapper/ArticleMapper.php.html#13"><abbr title="App\Mapper\ArticleMapper::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Mapper/ArticleMapper.php.html#15"><abbr title="App\Mapper\ArticleMapper::map">map</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Mapper/UserMapper.php.html#11"><abbr title="App\Mapper\UserMapper::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Mapper/UserMapper.php.html#17"><abbr title="App\Mapper\UserMapper::map">map</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/ArticleRepository.php.html#15"><abbr title="App\Repository\ArticleRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/ArticleRepository.php.html#20"><abbr title="App\Repository\ArticleRepository::countAll">countAll</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/ArticleRepository.php.html#29"><abbr title="App\Repository\ArticleRepository::findPaginate">findPaginate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#17"><abbr title="App\Repository\UserRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#25"><abbr title="App\Repository\UserRepository::upgradePassword">upgradePassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Traits/DateTimeTrait.php.html#35"><abbr title="App\Entity\Traits\DateTimeTrait::setUpdatedAt">setUpdatedAt</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3 style="margin-top: 2rem;">Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+         <th class="text-right">Complexity</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Mapper/ArticleMapper.php.html#15"><abbr title="App\Mapper\ArticleMapper::map">map</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">6</td><td class="text-right">42</td></tr>
+       <tr><td><a href="Mapper/UserMapper.php.html#17"><abbr title="App\Mapper\UserMapper::map">map</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">5</td><td class="text-right">30</td></tr>
+       <tr><td><a href="Entity/User.php.html#186"><abbr title="App\Entity\User::removeAricle">removeAricle</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">3</td><td class="text-right">12</td></tr>
+       <tr><td><a href="DataFixtures/AppFixtures.php.html#21"><abbr title="App\DataFixtures\AppFixtures::load">load</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">2</td><td class="text-right">6</td></tr>
+       <tr><td><a href="Entity/Article.php.html#146"><abbr title="App\Entity\Article::setImageFile">setImageFile</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">2</td><td class="text-right">6</td></tr>
+       <tr><td><a href="Entity/User.php.html#176"><abbr title="App\Entity\User::addAricle">addAricle</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">2</td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#25"><abbr title="App\Repository\UserRepository::upgradePassword">upgradePassword</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">2</td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 12.3.2</a> using <a href="https://www.php.net/" target="_top">PHP 8.4.11</a> and <a href="https://phpunit.de/">PHPUnit 12.3.5</a> at Mon Aug 18 13:22:10 UTC 2025.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/billboard.pkgd.min.js?v=12.3.2" type="text/javascript"></script>
+  <script type="application/json" id="complexity_class">[[0,7,"Controller\/Admin\/ArticleController.php.html#24","App\\Controller\\Admin\\ArticleController","56"],[0,5,"Controller\/Admin\/UserController.php.html#16","App\\Controller\\Admin\\UserController","30"],[0,2,"Controller\/UserController.php.html#14","App\\Controller\\UserController","6"],[0,6,"Dto\/Article\/CreateArticleDto.php.html#8","App\\Dto\\Article\\CreateArticleDto","42"],[0,6,"Dto\/Article\/UpdateArticleDto.php.html#8","App\\Dto\\Article\\UpdateArticleDto","42"],[0,3,"Dto\/Filter\/ArticleFilterDto.php.html#7","App\\Dto\\Filter\\ArticleFilterDto","12"],[0,6,"Dto\/User\/RegisterUserDto.php.html#12","App\\Dto\\User\\RegisterUserDto","42"],[0,7,"Dto\/User\/UpdateUserAdminDto.php.html#8","App\\Dto\\User\\UpdateUserAdminDto","56"],[0,7,"Mapper\/ArticleMapper.php.html#11","App\\Mapper\\ArticleMapper","56"],[0,6,"Mapper\/UserMapper.php.html#9","App\\Mapper\\UserMapper","42"],[0,3,"Repository\/ArticleRepository.php.html#13","App\\Repository\\ArticleRepository","12"],[0,3,"Repository\/UserRepository.php.html#15","App\\Repository\\UserRepository","12"],[4.166666666666666,3,"DataFixtures\/AppFixtures.php.html#14","App\\DataFixtures\\AppFixtures","10.92"],[16.129032258064516,21,"Entity\/User.php.html#14","App\\Entity\\User","281.18"],[52,18,"Entity\/Article.php.html#14","App\\Entity\\Article","53.83"],[81.81818181818183,7,"Entity\/Traits\/DateTimeTrait.php.html#8","App\\Entity\\Traits\\DateTimeTrait","7.29"],[100,0,"Kernel.php.html#8","App\\Kernel","0"]]</script>
+  <script type="application/json" id="complexity_method">[[0,1,"Controller\/Admin\/ArticleController.php.html#27","App\\Controller\\Admin\\ArticleController::__construct","2"],[0,1,"Controller\/Admin\/ArticleController.php.html#35","App\\Controller\\Admin\\ArticleController::listArticles","2"],[0,1,"Controller\/Admin\/ArticleController.php.html#47","App\\Controller\\Admin\\ArticleController::readArticle","2"],[0,1,"Controller\/Admin\/ArticleController.php.html#56","App\\Controller\\Admin\\ArticleController::deleteOneArticle","2"],[0,1,"Controller\/Admin\/ArticleController.php.html#67","App\\Controller\\Admin\\ArticleController::createArticle","2"],[0,1,"Controller\/Admin\/ArticleController.php.html#85","App\\Controller\\Admin\\ArticleController::updateArticle","2"],[0,1,"Controller\/Admin\/ArticleController.php.html#105","App\\Controller\\Admin\\ArticleController::upload","2"],[0,1,"Controller\/Admin\/UserController.php.html#19","App\\Controller\\Admin\\UserController::__construct","2"],[0,1,"Controller\/Admin\/UserController.php.html#25","App\\Controller\\Admin\\UserController::index","2"],[0,1,"Controller\/Admin\/UserController.php.html#33","App\\Controller\\Admin\\UserController::update","2"],[0,1,"Controller\/Admin\/UserController.php.html#48","App\\Controller\\Admin\\UserController::delete","2"],[0,1,"Controller\/Admin\/UserController.php.html#63","App\\Controller\\Admin\\UserController::show","2"],[0,1,"Controller\/UserController.php.html#17","App\\Controller\\UserController::__construct","2"],[0,1,"Controller\/UserController.php.html#21","App\\Controller\\UserController::register","2"],[0,2,"DataFixtures\/AppFixtures.php.html#21","App\\DataFixtures\\AppFixtures::load","6"],[0,1,"Dto\/Article\/CreateArticleDto.php.html#10","App\\Dto\\Article\\CreateArticleDto::__construct","2"],[0,1,"Dto\/Article\/CreateArticleDto.php.html#45","App\\Dto\\Article\\CreateArticleDto::getTitle","2"],[0,1,"Dto\/Article\/CreateArticleDto.php.html#50","App\\Dto\\Article\\CreateArticleDto::getShortContent","2"],[0,1,"Dto\/Article\/CreateArticleDto.php.html#55","App\\Dto\\Article\\CreateArticleDto::getContent","2"],[0,1,"Dto\/Article\/CreateArticleDto.php.html#60","App\\Dto\\Article\\CreateArticleDto::getEnabled","2"],[0,1,"Dto\/Article\/CreateArticleDto.php.html#65","App\\Dto\\Article\\CreateArticleDto::getUser","2"],[0,1,"Dto\/Article\/UpdateArticleDto.php.html#11","App\\Dto\\Article\\UpdateArticleDto::__construct","2"],[0,1,"Dto\/Article\/UpdateArticleDto.php.html#38","App\\Dto\\Article\\UpdateArticleDto::getTitle","2"],[0,1,"Dto\/Article\/UpdateArticleDto.php.html#43","App\\Dto\\Article\\UpdateArticleDto::getShortContent","2"],[0,1,"Dto\/Article\/UpdateArticleDto.php.html#48","App\\Dto\\Article\\UpdateArticleDto::getContent","2"],[0,1,"Dto\/Article\/UpdateArticleDto.php.html#53","App\\Dto\\Article\\UpdateArticleDto::getEnabled","2"],[0,1,"Dto\/Article\/UpdateArticleDto.php.html#58","App\\Dto\\Article\\UpdateArticleDto::getUser","2"],[0,1,"Dto\/Filter\/ArticleFilterDto.php.html#10","App\\Dto\\Filter\\ArticleFilterDto::__construct","2"],[0,1,"Dto\/Filter\/ArticleFilterDto.php.html#20","App\\Dto\\Filter\\ArticleFilterDto::getPage","2"],[0,1,"Dto\/Filter\/ArticleFilterDto.php.html#25","App\\Dto\\Filter\\ArticleFilterDto::getLimit","2"],[0,1,"Dto\/User\/RegisterUserDto.php.html#19","App\\Dto\\User\\RegisterUserDto::__construct","2"],[0,1,"Dto\/User\/RegisterUserDto.php.html#61","App\\Dto\\User\\RegisterUserDto::getUsername","2"],[0,1,"Dto\/User\/RegisterUserDto.php.html#66","App\\Dto\\User\\RegisterUserDto::getFirstName","2"],[0,1,"Dto\/User\/RegisterUserDto.php.html#71","App\\Dto\\User\\RegisterUserDto::getLastName","2"],[0,1,"Dto\/User\/RegisterUserDto.php.html#76","App\\Dto\\User\\RegisterUserDto::getPlainPassword","2"],[0,1,"Dto\/User\/RegisterUserDto.php.html#81","App\\Dto\\User\\RegisterUserDto::getConfirmPassword","2"],[0,1,"Dto\/User\/UpdateUserAdminDto.php.html#10","App\\Dto\\User\\UpdateUserAdminDto::__construct","2"],[0,1,"Dto\/User\/UpdateUserAdminDto.php.html#59","App\\Dto\\User\\UpdateUserAdminDto::getUsername","2"],[0,1,"Dto\/User\/UpdateUserAdminDto.php.html#64","App\\Dto\\User\\UpdateUserAdminDto::getFirstName","2"],[0,1,"Dto\/User\/UpdateUserAdminDto.php.html#69","App\\Dto\\User\\UpdateUserAdminDto::getLastName","2"],[0,1,"Dto\/User\/UpdateUserAdminDto.php.html#74","App\\Dto\\User\\UpdateUserAdminDto::getPlainPassword","2"],[0,1,"Dto\/User\/UpdateUserAdminDto.php.html#79","App\\Dto\\User\\UpdateUserAdminDto::getConfirmPassword","2"],[0,1,"Dto\/User\/UpdateUserAdminDto.php.html#84","App\\Dto\\User\\UpdateUserAdminDto::getRoles","2"],[0,1,"Entity\/Article.php.html#60","App\\Entity\\Article::getId","2"],[0,1,"Entity\/Article.php.html#65","App\\Entity\\Article::getTitle","2"],[0,1,"Entity\/Article.php.html#82","App\\Entity\\Article::setSlug","2"],[0,1,"Entity\/Article.php.html#89","App\\Entity\\Article::getContent","2"],[0,1,"Entity\/Article.php.html#101","App\\Entity\\Article::getShortContent","2"],[0,1,"Entity\/Article.php.html#113","App\\Entity\\Article::isEnabled","2"],[0,2,"Entity\/Article.php.html#146","App\\Entity\\Article::setImageFile","6"],[0,1,"Entity\/Article.php.html#162","App\\Entity\\Article::setImageName","2"],[0,1,"Entity\/Article.php.html#167","App\\Entity\\Article::getImageName","2"],[0,1,"Entity\/User.php.html#65","App\\Entity\\User::getId","2"],[0,1,"Entity\/User.php.html#70","App\\Entity\\User::getUsername","2"],[0,1,"Entity\/User.php.html#87","App\\Entity\\User::getUserIdentifier","2"],[0,1,"Entity\/User.php.html#95","App\\Entity\\User::getRoles","2"],[0,1,"Entity\/User.php.html#107","App\\Entity\\User::setRoles","2"],[0,1,"Entity\/User.php.html#117","App\\Entity\\User::getPassword","2"],[0,1,"Entity\/User.php.html#132","App\\Entity\\User::eraseCredentials","2"],[0,1,"Entity\/User.php.html#138","App\\Entity\\User::getFirstName","2"],[0,1,"Entity\/User.php.html#143","App\\Entity\\User::setFirstName","2"],[0,1,"Entity\/User.php.html#150","App\\Entity\\User::getLastName","2"],[0,1,"Entity\/User.php.html#155","App\\Entity\\User::setLastName","2"],[0,1,"Entity\/User.php.html#162","App\\Entity\\User::getFullName","2"],[0,1,"Entity\/User.php.html#171","App\\Entity\\User::getAricles","2"],[0,2,"Entity\/User.php.html#176","App\\Entity\\User::addAricle","6"],[0,3,"Entity\/User.php.html#186","App\\Entity\\User::removeAricle","12"],[0,1,"Mapper\/ArticleMapper.php.html#13","App\\Mapper\\ArticleMapper::__construct","2"],[0,6,"Mapper\/ArticleMapper.php.html#15","App\\Mapper\\ArticleMapper::map","42"],[0,1,"Mapper\/UserMapper.php.html#11","App\\Mapper\\UserMapper::__construct","2"],[0,5,"Mapper\/UserMapper.php.html#17","App\\Mapper\\UserMapper::map","30"],[0,1,"Repository\/ArticleRepository.php.html#15","App\\Repository\\ArticleRepository::__construct","2"],[0,1,"Repository\/ArticleRepository.php.html#20","App\\Repository\\ArticleRepository::countAll","2"],[0,1,"Repository\/ArticleRepository.php.html#29","App\\Repository\\ArticleRepository::findPaginate","2"],[0,1,"Repository\/UserRepository.php.html#17","App\\Repository\\UserRepository::__construct","2"],[0,2,"Repository\/UserRepository.php.html#25","App\\Repository\\UserRepository::upgradePassword","6"],[0,1,"Entity\/Traits\/DateTimeTrait.php.html#35","App\\Entity\\Traits\\DateTimeTrait::setUpdatedAt","2"],[100,1,"DataFixtures\/AppFixtures.php.html#17","App\\DataFixtures\\AppFixtures::__construct","1"],[100,1,"Entity\/Article.php.html#70","App\\Entity\\Article::setTitle","1"],[100,1,"Entity\/Article.php.html#77","App\\Entity\\Article::getSlug","1"],[100,1,"Entity\/Article.php.html#94","App\\Entity\\Article::setContent","1"],[100,1,"Entity\/Article.php.html#106","App\\Entity\\Article::setShortContent","1"],[100,1,"Entity\/Article.php.html#118","App\\Entity\\Article::setEnabled","1"],[100,1,"Entity\/Article.php.html#125","App\\Entity\\Article::getUser","1"],[100,1,"Entity\/Article.php.html#130","App\\Entity\\Article::setUser","1"],[100,1,"Entity\/Article.php.html#157","App\\Entity\\Article::getImageFile","1"],[100,1,"Entity\/User.php.html#58","App\\Entity\\User::__construct","1"],[100,1,"Entity\/User.php.html#75","App\\Entity\\User::setUsername","1"],[100,1,"Entity\/User.php.html#122","App\\Entity\\User::setPassword","1"],[100,1,"Entity\/Traits\/DateTimeTrait.php.html#18","App\\Entity\\Traits\\DateTimeTrait::getCreatedAt","1"],[100,1,"Entity\/Traits\/DateTimeTrait.php.html#23","App\\Entity\\Traits\\DateTimeTrait::setCreatedAt","1"],[100,1,"Entity\/Traits\/DateTimeTrait.php.html#30","App\\Entity\\Traits\\DateTimeTrait::getUpdatedAt","1"],[100,2,"Entity\/Traits\/DateTimeTrait.php.html#43","App\\Entity\\Traits\\DateTimeTrait::autoSetCreatedAt","2"],[100,1,"Entity\/Traits\/DateTimeTrait.php.html#52","App\\Entity\\Traits\\DateTimeTrait::autoSetUpdatedAt","1"]]</script>
+  <script type="text/javascript" defer>
+  const barLabels = [
+    '0%',
+    '0-10%',
+    '10-20%',
+    '20-30%',
+    '30-40%',
+    '40-50%',
+    '50-60%',
+    '60-70%',
+    '70-80%',
+    '80-90%',
+    '90-100%',
+    '100%'
+  ];
+  const barConfig = (name, fullName, values) => ({
+    axis: {
+      x: {
+        type: "category",
+        categories: barLabels,
+      },
+      y: {
+        label: {
+          text: `#${name}`,
+          position: 'outer-top',
+        },
+      },
+    },
+    bindto: `#${name}CoverageDistribution`,
+    data: {
+      columns: [
+        [fullName].concat(values),
+      ],
+      colors: {
+        [fullName]: "rgba(69, 114, 167, 0.75)",
+      },
+      type: "bar",
+    },
+    bar: {
+      width: {
+        ratio: 0.9,
+      },
+    },
+    grid: {
+      focus: {
+        show: false,
+      },
+      x: {
+        show: true,
+      },
+      y: {
+        show: true,
+      },
+    },
+    legend: {
+      show: false,
+    },
+    tooltip: {
+      contents: function (data) {
+        return `<table class="bb-tooltip"><tbody>
+            <tr><th colspan="2">Coverage ${barLabels[data[0].x]}</th></tr>
+            <tr><td class="value">${data[0].value} ${name}</td></tr>
+          </tbody></table>`;
+      },
+      grouped: false,
+    },
+  });
+  bb.generate(
+    barConfig('classes', "Class Coverage", [12,1,1,0,0,0,1,0,0,1,0,1])
+  );
+  bb.generate(
+    barConfig('methods', "Method Coverage", [77,0,0,0,0,0,0,0,0,0,0,17])
+  );
+
+  const scatterConfig = (name, complexityData) => ({
+    axis: {
+      x: {
+        label: {
+          text: 'Code Coverage (in percent)',
+          position: 'outer-right',
+        },
+        tick: {
+          values: [0, 20, 40, 60, 80, 100],
+        },
+      },
+      y: {
+        label: {
+          text: 'Cyclomatic Complexity',
+          position: 'outer-top',
+        },
+        min: 0,
+        padding: {
+          bottom: 0,
+          top: 5,
+        },
+      },
+    },
+    bindto: `#${name}Complexity`,
+    data: {
+      columns: [
+        ["complexity_x"].concat(complexityData.map(d => d[0])),
+        ["complexity"].concat(complexityData.map(d => d[1])),
+      ],
+      onclick: function(data, element) {
+        window.location = complexityData[data.index][2];
+      },
+      type: "scatter",
+      xs: {
+        "complexity": "complexity_x",
+      },
+    },
+    grid: {
+      focus: {
+        show: true,
+        y: true,
+      },
+      x: {
+        show: true,
+      },
+      y: {
+        show: true,
+      },
+    },
+    legend: {
+      show: false,
+    },
+    tooltip: {
+      contents: function (data) {
+        const coverage = Math.round(data[0].x);
+        const complexity = data[0].value;
+        const targetName = complexityData[data[0].index][3];
+        const crap = complexityData[data[0].index][4];
+        return `<table class="bb-tooltip"><tbody>
+            <tr><th colspan="2">${targetName}</th></tr>
+            <tr class="bb-tooltip-name-complexity"><td>Coverage</td><td class="name">${coverage}%</td></tr>
+            <tr class="bb-tooltip-name-complexity"><td>Complexity</td><td class="value">${complexity}</td></tr>
+            <tr class="bb-tooltip-name-complexity"><td>Crap</td><td class="value">${crap}</td></tr>
+          </tbody></table>`;
+      },
+      grouped: false,
+    },
+  });
+  const classComplexityData = JSON.parse(document.getElementById('complexity_class').textContent);
+  bb.generate(
+    scatterConfig("class", classComplexityData)
+  );
+  const methodComplexityData = JSON.parse(document.getElementById('complexity_method').textContent);
+  bb.generate(
+    scatterConfig("method", methodComplexityData),
+  );
+  </script>
+ </body>
+</html>
