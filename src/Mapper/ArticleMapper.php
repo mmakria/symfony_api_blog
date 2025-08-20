@@ -26,21 +26,21 @@ readonly class ArticleMapper
         }
 
         if (null !== $dto->getShortContent()) {
-            $article->setShortContent($dto->getShortContent()
+            $article->setShortContent(
+                $dto->getShortContent()
             );
         }
 
         if (null !== $dto->getContent()) {
-            $article->setContent($dto->getContent()
+            $article->setContent(
+                $dto->getContent()
             );
         }
 
-        if (null !== $dto->getEnabled()) {
-            $article->setEnabled($dto->getEnabled());
-
+        if (null !== $dto->isEnabled()) {
+            $article->setEnabled($dto->isEnabled());
         }
 
         return $article;
     }
-
 }
