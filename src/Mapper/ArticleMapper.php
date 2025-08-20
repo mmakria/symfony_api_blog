@@ -37,8 +37,8 @@ readonly class ArticleMapper
             );
         }
 
-        if (null !== $dto->isEnabled()) {
-            $article->setEnabled($dto->isEnabled());
+        if (null !== $dto->getEnabled()) {
+            $article->setEnabled($dto->getEnabled());
         }
 
         return $article;

@@ -62,7 +62,7 @@ class CreateArticleDto implements ArticleRequestInterface
         return $this->shortContent;
     }
 
-    public function isEnabled(): bool
+    public function getEnabled(): bool
     {
         return $this->enabled;
     }

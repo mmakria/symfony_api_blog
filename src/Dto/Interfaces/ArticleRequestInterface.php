@@ -10,7 +10,7 @@ interface ArticleRequestInterface
 
     public function getShortContent(): ?string;
 
-    public function isEnabled(): bool;
+    public function getEnabled(): bool;
 
     public function getUser(): ?int;
 }

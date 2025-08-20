@@ -4,6 +4,7 @@ namespace App\Tests\Functional;
 
 use App\Entity\Article;
 use App\Entity\User;
+use App\Repository\ArticleRepository;
 use App\Repository\UserRepository;
 use Liip\TestFixturesBundle\Services\DatabaseToolCollection;
 use Liip\TestFixturesBundle\Services\DatabaseTools\AbstractDatabaseTool;
@@ -22,7 +23,10 @@ class ArticleControllerTest extends WebTestCase
     public function setUp(): void
     {
         //Création du client léger pour les tests
-        $this->client = self::createClient();
+        $this->client = self::createClient(server: [
+            'HTTP_ACCEPT' => 'application/json',
+            'CONTENT_TYPE' => 'application/json'
+        ]);
         $this->databaseTool = self::getContainer()->get(DatabaseToolCollection::class)->get();
     }
 
@@ -156,10 +160,7 @@ class ArticleControllerTest extends WebTestCase
         $this->client->loginUser($this->getUser(), ('login'));
         $this->client->request(
             'GET',
-            '/api/admin/articles?page=-1',
-            server: [
-                'HTTP_ACCEPT' => 'application/json',
-            ]
+            '/api/admin/articles?page=-1'
         );
 
         $this->assertResponseStatusCodeSame(Response::HTTP_NOT_FOUND);
@@ -190,35 +191,125 @@ class ArticleControllerTest extends WebTestCase
         $this->assertEquals(2, $response['items'][0]['id']);
     }
 
+    // -------------------------------------- CREATION ----------------------------------
 
+    public function testCreateEndpointWithNoConnectedUser(): void
+    {
+        $this->client->request("POST", "/api/admin/articles/create");
+        $this->assertResponseStatusCodeSame(Response::HTTP_UNAUTHORIZED);
+    }
 
-    public function testCreateEndpointWithNotConnecteUser(): void {}
+    public function testCreateEndpointWithConnectedUser(): void
+    {
+        $this->client->loginUser(
+            $this->getUser('user'),
+            'login'
+        );
+        $this->client->request("POST", "/api/admin/articles/create");
+        $this->assertResponseStatusCodeSame(Response::HTTP_FORBIDDEN);
+    }
 
-    public function testCreateArticle(): void
+    public function testCreateEndpointWithConnecteAdmin(): void
     {
 
-        $this->client->loginUser($this->getUser(), ('login'));
+        $user = $this->getUser();
 
-        $articleData = [
-            'title' => 'Nouvel Article Test',
-            'content' => 'Contenu de test complet',
-            'shortContent' => 'Résumé court',
-            'enabled' => true,
-            'user' => 1
-        ];
-
+        $this->client->loginUser($user, ('login'));
         $this->client->request(
             'POST',
             '/api/admin/articles/create',
-            [],
-            [],
             [
-                'CONTENT_TYPE' => 'application/json',
-                'HTTP_ACCEPT'  => 'application/json',
-            ],
-            json_encode($articleData)
+                'title' => 'Article de test',
+                'shortContent' => 'Article de shorttest',
+                'content' => 'Article de test de france',
+                'user' => $user->getId(),
+
+            ]
+        );
+        $this->assertResponseStatusCodeSame(Response::HTTP_CREATED);
+    }
+
+    public function testCreateEndpointValidateCreationInDb(): void
+    {
+        $user = $this->getUser();
+
+        $this->client->loginUser($user, ('login'));
+        $this->client->request(
+            'POST',
+            '/api/admin/articles/create',
+            [
+                'title' => 'Article de test',
+                'shortContent' => 'Article de shorttest',
+                'content' => 'Article de test de france',
+                'user' => $user->getId(),
+
+            ]
         );
 
-        $this->assertResponseStatusCodeSame(Response::HTTP_CREATED);
+        $article = self::getContainer()->get(ArticleRepository::class)->findOneBy(['title' => 'Article de test']);
+        $this->assertInstanceOf(Article::class, $article);
+    }
+
+    // -------------------------------------- UPDATE ----------------------------------
+    public function testUpdateEndpointWithNoConnectedUser(): void
+    {
+        $this->client->request("PATCH", '/api/admin/articles/7');
+        $this->assertResponseStatusCodeSame(Response::HTTP_UNAUTHORIZED);
+    }
+    public function testUpdateEndpointWithConnectedUser(): void
+    {
+        $this->client->loginUser($this->getUser('user'), ('login'));
+        $this->client->request("PATCH", '/api/admin/articles/7');
+
+        $this->assertResponseStatusCodeSame(Response::HTTP_FORBIDDEN);
+    }
+
+    public function testUpdateEndpointArticle(): void
+    {
+
+        $this->client->loginUser($this->getUser('admin'), ('login'));
+        $this->databaseTool->loadAliceFixture([
+            __DIR__ . '/Fixtures/ArticleFixtures.yaml'
+        ]);
+
+        $articleId = self::getContainer()->get(ArticleRepository::class)->findOneBy(['title' => 'Article 7'])->getId();
+        $this->client->request(
+            'PATCH',
+            "/api/admin/articles/{$articleId}",
+            [
+                'title'        => 'Article de test',
+                'shortContent' => 'Article de shorttest',
+                'content'      => 'Article de test de francedsdsds',
+
+            ]
+
+        );
+
+
+        $this->assertResponseStatusCodeSame(Response::HTTP_OK);
+    }
+    public function testUpdateEndpointValidateUpdateInDb(): void
+    {
+        $this->client->loginUser($this->getUser('admin'), ('login'));
+        $this->databaseTool->loadAliceFixture([
+            __DIR__ . '/Fixtures/ArticleFixtures.yaml'
+        ]);
+        $this->client->request(
+            'PATCH',
+            '/api/admin/articles/7',
+
+            [
+                'title'        => 'New Patch',
+                'shortContent' => 'New ShortPatch',
+                'content'      => 'New ContentPatch',
+            ]
+        );
+        $this->assertResponseStatusCodeSame(Response::HTTP_OK);
+        $article = self::getContainer()->get(ArticleRepository::class)->findOneBy(['id' => '7']);
+
+        $this->assertEquals('New Patch', $article->getTitle());
+        $this->assertEquals('New ShortPatch', $article->getShortContent());
+        $this->assertEquals('New ContentPatch', $article->getContent());
+        $this->assertInstanceOf(Article::class, $article);
     }
 }
