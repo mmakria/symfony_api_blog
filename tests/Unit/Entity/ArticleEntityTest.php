@@ -96,7 +96,7 @@ class ArticleEntityTest extends KernelTestCase
         $article->setTitle('nouveau titre');
         $this->entityManager->flush();
 
-        $expected = (new \DateTimeImmutable()->format('Y-m-d H:i'));
+        $expected = (new \DateTimeImmutable())->format('Y-m-d H:i');
         $this->assertEquals($expected, $article->getUpdatedAt()->format('Y-m-d H:i'));
     }
 
