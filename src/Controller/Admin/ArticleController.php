@@ -5,13 +5,11 @@ namespace App\Controller\Admin;
 use App\Dto\Article\CreateArticleDto;
 use App\Dto\Article\UpdateArticleDto;
 use App\Dto\Filter\ArticleFilterDto;
-use App\Mapper\ArticleMapper;
 use App\Entity\Article;
+use App\Mapper\ArticleMapper;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
-
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,23 +23,25 @@ use Symfony\Component\Validator\Constraints\Image;
 class ArticleController extends AbstractController
 {
     public function __construct(
-        private readonly ArticleRepository      $articleRepository,
+        private readonly ArticleRepository $articleRepository,
         private readonly EntityManagerInterface $entityManager,
-        private readonly ArticleMapper          $articleMapper,
-    )
-    {
+        private readonly ArticleMapper $articleMapper,
+    ) {
     }
 
     #[Route('', name: 'read_articles', methods: ['GET'])]
     public function listArticles(
         #[MapQueryString]
         ArticleFilterDto $filterDto,
-    ): JsonResponse
-    {
+    ): JsonResponse {
 
-        return $this->json($this->articleRepository->findPaginate($filterDto),
+        return $this->json(
+            $this->articleRepository->findPaginate($filterDto),
             Response::HTTP_OK,
-            context: ['groups' => ['articles:admin:read']]);
+            context: [
+                'groups' => ['articles:admin:read'],
+            ]
+        );
     }
 
     #[Route('/{id}', name: 'read_one_article', methods: ['GET'])]
@@ -50,7 +50,10 @@ class ArticleController extends AbstractController
         return $this->json(
             $article,
             Response::HTTP_OK,
-            context: ['groups' => ['articles:admin:read']]);
+            context: [
+                'groups' => ['articles:admin:read'],
+            ]
+        );
     }
 
     #[Route('/{id}', name: 'delete_one_article', methods: ['DELETE'])]
@@ -68,15 +71,14 @@ class ArticleController extends AbstractController
     public function createArticle(
         #[MapRequestPayload]
         CreateArticleDto $dto
-    ): JsonResponse
-    {
+    ): JsonResponse {
         $user = $this->getUser();
         $article = $this->articleMapper->map($dto, null, $user);
         $this->entityManager->persist($article);
         $this->entityManager->flush();
         return $this->json(
             [
-                'id' => $article->getId()
+                'id' => $article->getId(),
             ],
             Response::HTTP_CREATED
         );
@@ -84,21 +86,22 @@ class ArticleController extends AbstractController
 
     #[Route('/{id}', name: 'update_article', methods: ['PATCH'])]
     public function updateArticle(
-        Article          $article,
+        Article $article,
         #[MapRequestPayload]
         UpdateArticleDto $dto
-    ): JsonResponse
-    {
+    ): JsonResponse {
         $user = $this->getUser();
         $article = $this->articleMapper->map($dto, $article, $user);
         $this->entityManager->persist($article);
         $this->entityManager->flush();
         return $this->json(
             [
-                'message' => 'Article ' . $article->getId() . ' mis à jour'
+                'message' => 'Article ' . $article->getId() . ' mis à jour',
             ],
             Response::HTTP_OK,
-            context: ['groups' => ['articles:admin:write']]
+            context: [
+                'groups' => ['articles:admin:write'],
+            ]
         );
     }
 
@@ -121,8 +124,8 @@ class ArticleController extends AbstractController
             )
         )]
         UploadedFile $image,
-        Article      $article): JsonResponse
-    {
+        Article $article
+    ): JsonResponse {
         $article->setImageFile($image);
         $this->entityManager->persist($article);
         $this->entityManager->flush();

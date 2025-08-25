@@ -2,11 +2,9 @@
 
 namespace App\Dto\User;
 
-
 use App\Dto\Interfaces\UserRequestInterface;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[UniqueEntity(
@@ -15,7 +13,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 )]
 readonly class RegisterUserDto implements UserRequestInterface
 {
-
     public function __construct(
         #[Assert\NotBlank(message: "Le nom du user est requis.")]
         #[Assert\Length(
@@ -25,20 +22,16 @@ readonly class RegisterUserDto implements UserRequestInterface
             maxMessage: "Le nom du user est trop long."
         )]
         private ?string $username = null,
-
-
         #[Assert\Length(
             max: 255,
             maxMessage: "Le prénom est trop long.",
         )]
         private ?string $firstName = null,
-
         #[Assert\Length(
             max: 255,
             maxMessage: "Le nom du user est trop long.",
         )]
         private ?string $lastName = null,
-
         #[Assert\NotBlank()]
         #[Assert\Length(
             min: 6,
@@ -53,8 +46,7 @@ readonly class RegisterUserDto implements UserRequestInterface
             message: 'La confirmation du mot de passe est incorrect.',
         )]
         private ?string $confirmPassword = null,
-    )
-    {
+    ) {
 
     }
 
@@ -82,6 +74,4 @@ readonly class RegisterUserDto implements UserRequestInterface
     {
         return $this->confirmPassword;
     }
-
-
 }

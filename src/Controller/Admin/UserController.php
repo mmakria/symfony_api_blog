@@ -17,40 +17,45 @@ use Symfony\Component\Routing\Attribute\Route;
 class UserController extends AbstractController
 {
     public function __construct(
-        private EntityManagerInterface  $em,
+        private EntityManagerInterface $em,
         private readonly UserRepository $userRepository,
-        private readonly UserMapper     $userMapper,
-    )
-    {}
+        private readonly UserMapper $userMapper,
+    ) {
+    }
+
     #[Route('', name: 'index', methods: ['GET'])]
     public function index(): JsonResponse
     {
-        return $this->json($this->userRepository->findAll(),
+        return $this->json(
+            $this->userRepository->findAll(),
             Response::HTTP_OK,
-            context: ['groups' => ['common:index', 'users:admin:read']]);
+            context: [
+                'groups' => ['common:index', 'users:admin:read'],
+            ]
+        );
     }
 
     #[Route('/{id}', name: 'update', methods: ['PATCH'])]
     public function update(
-        User               $user,
+        User $user,
         #[MapRequestPayload]
         UpdateUserAdminDto $dto
-    ): JsonResponse
-    {
+    ): JsonResponse {
         $user = $this->userMapper->map($dto, $user);
         $this->em->flush();
         return $this->json(
-           $user,
+            $user,
             Response::HTTP_OK,
-            context: ['groups' => ['common:index', 'users:index', 'users:show']]);
+            context: [
+                'groups' => ['common:index', 'users:index', 'users:show'],
+            ]
+        );
     }
 
     #[Route('/{id}', name: 'delete', methods: ['DELETE'])]
     public function delete(
-        User               $user,
-
-    ): JsonResponse
-    {
+        User $user,
+    ): JsonResponse {
         $this->em->remove($user);
         $this->em->flush();
         return $this->json(
@@ -58,7 +63,6 @@ class UserController extends AbstractController
             Response::HTTP_NO_CONTENT,
         );
     }
-
 
     #[Route('/{id}', name: 'show', methods: ['GET'])]
     public function show(User $user): JsonResponse
@@ -72,5 +76,4 @@ class UserController extends AbstractController
         );
 
     }
-
 }

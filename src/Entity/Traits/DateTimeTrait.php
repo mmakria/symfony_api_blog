@@ -39,11 +39,10 @@ trait DateTimeTrait
         return $this;
     }
 
-
     #[ORM\PrePersist]
     public function autoSetCreatedAt(): static
     {
-        if (!$this->createdAt) {
+        if (! $this->createdAt) {
             $this->createdAt = new \DateTimeImmutable();
         }
         return $this;
