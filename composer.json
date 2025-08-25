@@ -1,4 +1,6 @@
 {
+    "name": "mmakria/symfony-api-blog",
+    "description": "A Symfony API for blog management",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "stable",
