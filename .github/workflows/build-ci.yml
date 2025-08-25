@@ -13,7 +13,7 @@ jobs:
       matrix:
         php: [8.3]
         symfony: [7.1]
-    
+
     env:
       APP_ENV: test
       DATABASE_URL: sqlite:///tmp/test.db
@@ -55,4 +55,13 @@ jobs:
           token: ${{secrets.CODECOV_TOKEN}}
           files: coverage/cov-unit.xml
           flags: unit
+          name: codecov-umbrella
+
+      - name: Upload coverage report functional to Codecov
+        uses: codecov/codecov-action@v5
+
+        with:
+          token: ${{secrets.CODECOV_TOKEN}}
+          files: coverage/cov-functional.xml
+          flags: functional
           name: codecov-umbrella
