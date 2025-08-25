@@ -10,11 +10,14 @@ use App\Repository\UserRepository;
 
 readonly class ArticleMapper
 {
-    public function __construct(private UserRepository $userRepository) {}
+    public function __construct(
+        private UserRepository $userRepository
+    ) {
+    }
 
     public function map(CreateArticleDto|UpdateArticleDto $dto, ?Article $article = null, ?User $user = null): Article
     {
-        $article ??= new Article;
+        $article ??= new Article();
 
         if (null !== $dto->getUser()) {
             $user = $this->userRepository->find($dto->getUser());

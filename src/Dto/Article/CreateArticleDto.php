@@ -23,14 +23,12 @@ class CreateArticleDto implements ArticleRequestInterface
             maxMessage: 'Le titre ne peut pas dépasser {{ limit }} caractères'
         )]
         private readonly ?string $title = null,
-
         #[Assert\NotBlank(message: 'Le contenu est obligatoire')]
         #[Assert\Length(
             min: 10,
             minMessage: 'Le contenu doit contenir au moins {{ limit }} caractères',
         )]
         private readonly ?string $content = null,
-
         #[Assert\NotBlank(message: 'Le contenu court est obligatoire')]
         #[Assert\Length(
             min: 5,
@@ -39,13 +37,12 @@ class CreateArticleDto implements ArticleRequestInterface
             maxMessage: 'Le contenu court ne peut pas dépasser {{ limit }} caractères'
         )]
         private readonly ?string $shortContent = null,
-
         private readonly bool $enabled = false,
-
         #[Assert\NotBlank(message: 'L\'utilisateur est obligatoire')]
         #[Assert\Positive(message: 'L\'utilisateur doit être un identifiant valide')]
         private readonly ?int $user = null,
-    ) {}
+    ) {
+    }
 
     public function getTitle(): ?string
     {

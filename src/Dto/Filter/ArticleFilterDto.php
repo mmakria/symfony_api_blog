@@ -6,15 +6,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class ArticleFilterDto
 {
-
     public function __construct(
         #[Assert\Positive()]
         private readonly int $page = 1,
         #[Assert\Positive()]
         private readonly int $limit = 6,
-
-    )
-    {
+    ) {
     }
 
     public function getPage(): int
@@ -26,6 +23,4 @@ class ArticleFilterDto
     {
         return $this->limit;
     }
-
-
 }

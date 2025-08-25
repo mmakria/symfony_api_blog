@@ -7,7 +7,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 readonly class UpdateArticleDto
 {
-
     public function __construct(
         #[Assert\Length(
             min: 6,
@@ -16,7 +15,6 @@ readonly class UpdateArticleDto
             maxMessage: "Le Titre est trop long.",
         )]
         private ?string $title = null,
-
         #[Assert\Length(
             min: 6,
             max: 255,
@@ -31,9 +29,10 @@ readonly class UpdateArticleDto
             maxMessage: "Le content est trop long.",
         )]
         private ?string $content = null,
-        private ?bool   $enabled = true,
+        private ?bool $enabled = true,
         private ?User $user = null,
-    ){}
+    ) {
+    }
 
     public function getTitle(): ?string
     {
@@ -59,5 +58,4 @@ readonly class UpdateArticleDto
     {
         return $this->user;
     }
-
 }

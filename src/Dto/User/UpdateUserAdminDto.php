@@ -15,20 +15,16 @@ readonly class UpdateUserAdminDto implements UserRequestInterface
             maxMessage: 'Le nom d\'utilisateur ne peut pas dépasser {{ limit }} caractères'
         )]
         private ?string $username = null,
-
         #[Assert\Length(
             max: 255,
             maxMessage: 'Le prénom ne peut pas dépasser {{ limit }} caractères'
         )]
         private ?string $firstName = null,
-
-
         #[Assert\Length(
             max: 255,
             maxMessage: 'Le nom ne peut pas dépasser {{ limit }} caractères'
         )]
         private ?string $lastName = null,
-
         #[Assert\Length(
             min: 6,
             max: 4096,
@@ -40,19 +36,17 @@ readonly class UpdateUserAdminDto implements UserRequestInterface
             message: 'Le mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial'
         )]
         private ?string $plainPassword = null,
-
         #[Assert\EqualTo(
             propertyPath: 'plainPassword',
             message: 'La confirmation du mot de passe doit correspondre au mot de passe'
         )]
         private ?string $confirmPassword = null,
-
         #[Assert\Choice(
             choices: ['ROLE_USER', 'ROLE_ADMIN'],
             multiple: true,
             message: 'Le rôle doit être soit ROLE_USER soit ROLE_ADMIN',
         )]
-        private ?array  $roles = null,
+        private ?array $roles = null,
     ) {
     }
 

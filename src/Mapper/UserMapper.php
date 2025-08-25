@@ -10,32 +10,36 @@ readonly class UserMapper
 {
     public function __construct(
         private UserPasswordHasherInterface $passwordHasher,
-    )
-    {
+    ) {
     }
 
     public function map(UserRequestInterface $dto, ?User $user = null): User
     {
-        $user ??= new User;
+        $user ??= new User();
 
         if (null !== $dto->getUsername()) {
-            $user->setUsername($dto->getUsername()
+            $user->setUsername(
+                $dto->getUsername()
             );
         }
 
         if (null !== $dto->getFirstName()) {
-            $user->setFirstName($dto->getFirstName()
+            $user->setFirstName(
+                $dto->getFirstName()
             );
         }
 
         if (null !== $dto->getLastName()) {
-            $user->setLastName($dto->getLastName()
+            $user->setLastName(
+                $dto->getLastName()
             );
         }
 
         if (null !== $dto->getPlainPassword()) {
             $user->setPassword(
-                $this->passwordHasher->hashPassword($user, $dto->getPlainPassword()
+                $this->passwordHasher->hashPassword(
+                    $user,
+                    $dto->getPlainPassword()
                 )
             );
         }
@@ -43,6 +47,4 @@ readonly class UserMapper
         return $user;
 
     }
-
-
 }

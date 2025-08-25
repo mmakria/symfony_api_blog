@@ -60,8 +60,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->aricles = new ArrayCollection();
     }
 
-
-
     public function getId(): ?int
     {
         return $this->id;
@@ -162,7 +160,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Groups(groups: ['common:index'])]
     public function getFullName(): string
     {
-        return $this->firstName.' '.$this->lastName;
+        return $this->firstName . ' ' . $this->lastName;
     }
 
     /**
@@ -175,7 +173,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function addAricle(Article $aricle): static
     {
-        if (!$this->aricles->contains($aricle)) {
+        if (! $this->aricles->contains($aricle)) {
             $this->aricles->add($aricle);
             $aricle->setUser($this);
         }
@@ -194,5 +192,4 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-
 }

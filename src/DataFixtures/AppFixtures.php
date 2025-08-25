@@ -4,7 +4,6 @@ namespace App\DataFixtures;
 
 use App\Entity\Article;
 use App\Entity\User;
-use App\Repository\UserRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
@@ -14,7 +13,10 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 class AppFixtures extends Fixture
 {
     private Generator $faker;
-    public function __construct(private UserPasswordHasherInterface $passwordHasher) {
+
+    public function __construct(
+        private UserPasswordHasherInterface $passwordHasher
+    ) {
         $this->faker = Factory::create('fr_FR');
     }
 

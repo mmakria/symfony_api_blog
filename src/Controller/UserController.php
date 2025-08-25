@@ -1,5 +1,7 @@
 <?php
+
 // Ici sera tout ce qui est publique
+
 namespace App\Controller;
 
 use App\Dto\User\RegisterUserDto;
@@ -17,7 +19,9 @@ class UserController extends AbstractController
     public function __construct(
         private readonly UserMapper $userMapper,
         private readonly EntityManagerInterface $em,
-    ) {}
+    ) {
+    }
+
     #[Route('/api/register', name: 'api_register', methods: ['POST'])]
     //Uniquement depuis la version symfony 6.
     public function register(
@@ -30,7 +34,7 @@ class UserController extends AbstractController
 
         return $this->json(
             [
-                'id' => $user->getId()
+                'id' => $user->getId(),
             ],
             Response::HTTP_CREATED
         );
